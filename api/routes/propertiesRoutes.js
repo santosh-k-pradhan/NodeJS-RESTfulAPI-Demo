@@ -5,7 +5,8 @@ module.exports = function(app) {
 
   //Properties Routes
   app.route('/createProperties').post(properties.createProperties);
-  
+  app.route('/getAllProperties').get(properties.getAllProperties);
+
   // Featured Properties Routes
   app.route('/createFeaturedProperties').post(featuredProperties.createFeaturedProperties);
   app.route('/getAllFeaturedProperties').get(featuredProperties.getAllFeaturedProperties);
