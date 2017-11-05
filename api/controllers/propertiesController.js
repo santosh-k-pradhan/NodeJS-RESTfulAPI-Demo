@@ -1,9 +1,9 @@
 'use strict';
 
 var mongoose = require('mongoose'),
-    Property = mongoose.model('FeaturedPropertyCollection');
+    Property = mongoose.model('PropertyCollection');
 
-exports.createFeaturedProperties = function(req, res) {
+exports.createProperties = function(req, res) {
   var property = new Property(req.body);
   property.save(function(err, resProperty) {
     if (err)
@@ -12,7 +12,7 @@ exports.createFeaturedProperties = function(req, res) {
   });
 };
 
-exports.getAllFeaturedProperties = function(req, res) {
+/*exports.getAllFeaturedProperties = function(req, res) {
   Property.find({}, function(err, resProperty) {
     if (err)
       res.send(err);
@@ -44,4 +44,4 @@ exports.deleteFeaturedProperty = function(req, res) {
       res.send(err);
     res.json({ message: 'Property successfully deleted' });
   });
-};
+};*/

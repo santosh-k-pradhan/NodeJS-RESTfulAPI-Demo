@@ -3,6 +3,7 @@ var express = require('express'),
   port = process.env.PORT || 9000,
   mongoose = require('mongoose'),
   Task = require('./api/models/featurePropertiesModel'), //created model loading here
+  Task1 = require('./api/models/propertiesModel'), //created model loading here
   bodyParser = require('body-parser');
   
 // mongoose instance connection url connection
@@ -17,7 +18,7 @@ app.use(bodyParser.json());
   res.status(404).send({url: req.originalUrl + ' not found'})
 });*/
 
-var routes = require('./api/routes/featuredPropertiesRoutes'); //importing route
+var routes = require('./api/routes/propertiesRoutes'); //importing route
 routes(app); //register the route
 
 
