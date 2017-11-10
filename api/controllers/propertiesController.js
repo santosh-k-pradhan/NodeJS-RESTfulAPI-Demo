@@ -8,7 +8,10 @@ exports.createProperties = function(req, res) {
   property.save(function(err, resProperty) {
     if (err)
       res.send(err);
-    res.json(resProperty);
+    res.json({ 
+      status: true,
+      desc: 'Property details inserted successfully'
+    });
   });
 };
 

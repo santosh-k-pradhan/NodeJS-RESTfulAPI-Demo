@@ -4,32 +4,44 @@ var Schema = mongoose.Schema;
 
 
 var PropertySchema = new Schema({
-  property_title: { type: String, required: 'Kindly enter the name of the task' },
-  price: { type: Number },
-  price_post: { type: Number },
-  beds: { type: String },
-  baths: { type: String },
-  garages: { type: String },
-  area: { type: String },
-  area_post: { type: String },
-  property_type: { type: String },
-  property_status: { type: String },
-  description: { type: String },
-  featured_img: { type: String },
-  galery_img: { type: String },
-  address: { type: String },
-  property_latitude: { type: String },
-  property_longitude: { type: String },  
-  amenities: { type: String },
-  agent_display: { type: String },
-  agent_select: { type: String },
-  /*status: {
-    type: [{
-      type: String,
-      enum: ['pending', 'ongoing', 'completed']
-    }],
-    default: ['pending']
-  },*/
+  propertyTitle: { type: String, required: 'Kindly enter the name of the property' },
+  price: { type: Number, required: 'Kindly enter the price of the property' },
+  pricePostFix: {type: Number},
+  bedRooms: {type: Number},
+  bathRooms: {type: Number},
+  garages: {type: Number},
+  area: {type: Number},
+  areaPostFix: {type: Number},
+  propertyType: {type: String},
+  propertyStatus: {type: String},
+  propertyDescription: {type: String},
+  address: { type: String, required: 'Kindly enter the address of the property' },
+  property_latitude: {type: String},
+  property_longitude: {type: String},  
+  amenities: {
+    ac: {type: Boolean, default: false},
+    balcony: {type: Boolean, default: false},
+    bedding: {type: Boolean, default: false},
+    cable: {type: Boolean, default: false},
+    coffeePot: {type: Boolean, default: false},
+    dishwasher: {type: Boolean, default: false},
+    fridge: {type: Boolean, default: false},
+    grill: {type: Boolean, default: false},
+    heating: {type: Boolean, default: false},
+    internet: {type: Boolean, default: false},
+    microwave: {type: Boolean, default: false},
+    oven: {type: Boolean, default: false},
+    parking: {type: Boolean, default: false},
+    pool: {type: Boolean, default: false},
+    toaster: {type: Boolean, default: false}
+  },
+  agentDisplay: {type: String},
+  agentName: {type: String},
+  customAgentDetails: {},
+  feturedPropertyFlag: {
+    type: Boolean,
+    default: true
+  },
   Created_date: {
     type: Date,
     default: Date.now
