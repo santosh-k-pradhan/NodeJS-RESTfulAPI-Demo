@@ -10,7 +10,7 @@ exports.createProperties = function(req, res) {
       res.send(err);
     res.json({ 
       status: true,
-      desc: 'Property details inserted successfully'
+      desc: 'Property submitted successfully'
     });
   });
 };
