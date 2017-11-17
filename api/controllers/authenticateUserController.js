@@ -37,7 +37,7 @@ exports.authenticateUser = function(req, res) {
             desc: 'User successfully logged in !!!'
           });
         }
-        if (responseUser.password !== d) {
+        if (responseUser.password !== decryptPassword) {
           res.json({
             status: true,
             code: 2,
