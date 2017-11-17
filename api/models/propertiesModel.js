@@ -15,6 +15,8 @@ var PropertySchema = new Schema({
   propertyType: {type: String},
   propertyStatus: {type: String},
   propertyDescription: {type: String},
+  featuredImg: {type: String},
+  additionalImg: {type: String},
   address: { type: String, required: 'Kindly enter the address of the property' },
   property_latitude: {type: String},
   property_longitude: {type: String},  

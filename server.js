@@ -4,6 +4,7 @@ var express = require('express'),
   mongoose = require('mongoose'),
   Task = require('./api/models/featurePropertiesModel'), //created model loading here
   Task1 = require('./api/models/propertiesModel'), //created model loading here
+  Task2 = require('./api/models/userModel'), //created model loading here
   bodyParser = require('body-parser');
   
 // mongoose instance connection url connection
