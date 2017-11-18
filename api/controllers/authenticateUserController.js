@@ -28,13 +28,14 @@ exports.authenticateUser = function(req, res) {
   User.findOne( {email: reqEmail}, function(err, responseUser) {
      if (err) {
       res.send(err);             
-    } else if (responseUser) {    
+    } else if (responseUser) {
         var decryptPassword = jsEncode.encode(reqPassword, hashKey);
         if (responseUser.password === decryptPassword) {
           res.json({
             status: true,
             code: 1,
-            desc: 'User successfully logged in !!!'
+            desc: 'User successfully logged in !!!',
+            name: responseUser.name
           });
         }
         if (responseUser.password !== decryptPassword) {
