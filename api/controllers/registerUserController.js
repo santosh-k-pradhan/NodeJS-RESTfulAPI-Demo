@@ -57,3 +57,11 @@ exports.getUserMailValidation = function(req, res) {
     }
   });
 };
+
+exports.getAllUsers = function(req, res) {
+  User.find({}, function(err, resUser) {
+    if (err)
+      res.send(err);
+    res.json(resUser);
+  });
+};
