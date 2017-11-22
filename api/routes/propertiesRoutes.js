@@ -10,10 +10,11 @@ module.exports = function(app) {
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
   });
-  
+
   //Properties Routes
   app.route('/createProperties').post(properties.createProperties);
   app.route('/getAllProperties').get(properties.getAllProperties);
+  app.route('/removeAllProperties').delete(properties.removeAllProperties);
 
   //User Routes
   app.route('/registerUser').post(user.createUser);

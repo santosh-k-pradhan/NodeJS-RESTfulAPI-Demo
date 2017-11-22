@@ -22,3 +22,16 @@ exports.getAllProperties = function(req, res) {
     res.json(resProperty);
   });
 };
+
+exports.removeAllProperties = function(req, res) {
+  Property.remove({}, function(err, numberRemoved) {
+    if (err)
+      res.send(err);
+    res.json(
+      { 
+        status: true,
+        message: 'Properties successfully deleted' 
+      }
+    );
+  });
+};
