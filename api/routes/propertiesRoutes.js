@@ -5,6 +5,12 @@ module.exports = function(app) {
   var user = require('../controllers/registerUserController');
   var authUser = require('../controllers/authenticateUserController');
 
+  app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
+  
   //Properties Routes
   app.route('/createProperties').post(properties.createProperties);
   app.route('/getAllProperties').get(properties.getAllProperties);

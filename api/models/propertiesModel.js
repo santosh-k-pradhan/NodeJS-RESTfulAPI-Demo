@@ -47,6 +47,10 @@ var PropertySchema = new Schema({
   Created_date: {
     type: Date,
     default: Date.now
+  },
+  imageProperty: {
+    type: String,
+    default: '1837x1206.png'
   }
 });
 
