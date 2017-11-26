@@ -19,8 +19,8 @@ module.exports = function(app) {
   //User Routes
   app.route('/registerUser').post(user.createUser);
   app.route('/getUserMailValidation/:email').get(user.getUserMailValidation);
-  app.route('/getAllUsers').get(user.getAllUsers);  
-
+  app.route('/getAllUsers').get(user.getAllUsers);
+  app.route('/updateAdminAccess/:email').put(user.updateAdminAccess);
   //Login User Routes
   app.route('/authenticateUser').post(authUser.authenticateUser);
 

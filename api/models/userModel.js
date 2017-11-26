@@ -8,6 +8,10 @@ var UserSchema = new Schema({
   email: { type: String, required: 'Kindly enter the email of the property' },
   password: {type: String, required: 'Kindly enter the password of the property' },
   confirmPassword: {type: String, required: 'Kindly enter the confirmPassword of the property' },
+  isAdmin: {
+    type: String,
+    default: 'N'
+  },
   Created_date: {
     type: Date,
     default: Date.now

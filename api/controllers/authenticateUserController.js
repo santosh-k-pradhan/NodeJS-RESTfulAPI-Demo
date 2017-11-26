@@ -35,7 +35,9 @@ exports.authenticateUser = function(req, res) {
             status: true,
             code: 1,
             desc: 'User successfully logged in !!!',
-            name: responseUser.name
+            name: responseUser.name,
+            email: responseUser.email,
+            isAdmin: responseUser.isAdmin
           });
         }
         if (responseUser.password !== decryptPassword) {

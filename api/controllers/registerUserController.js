@@ -65,3 +65,16 @@ exports.getAllUsers = function(req, res) {
     res.json(resUser);
   });
 };
+
+exports.updateAdminAccess = function(req, res) {
+  User.findOneAndUpdate( {email: req.params.email}, {$set:{isAdmin:"Y"}}, {new: true}, function(err, response) {
+    if (err)
+      res.send(err);
+    if(response){
+      res.json({ 
+        status: true,
+        desc: 'Admin Access Provided.'
+      });
+    }
+  });
+};
