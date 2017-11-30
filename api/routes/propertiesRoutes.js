@@ -15,6 +15,8 @@ module.exports = function(app) {
   app.route('/createProperties').post(properties.createProperties);
   app.route('/getAllProperties').get(properties.getAllProperties);
   app.route('/removeAllProperties').delete(properties.removeAllProperties);
+  app.route('/getFeaturedProperties').get(properties.getFeaturedProperties);
+  app.route('/getPaginatedProperties').put(properties.getPaginatedProperties);
 
   //User Routes
   app.route('/registerUser').post(user.createUser);

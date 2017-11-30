@@ -13,8 +13,10 @@ var PropertySchema = new Schema({
   area: {type: Number},
   areaPostFix: {type: Number},
   propertyType: {type: String},
-  propertyStatus: {type: String},
+  propertyFor: {type: String},
+  propertySquareFt: {type: Number},
   propertyDescription: {type: String},
+  pincode: {type: String},
   featuredImg: {type: String},
   additionalImg: {type: String},
   address: { type: String, required: 'Kindly enter the address of the property' },
@@ -39,10 +41,13 @@ var PropertySchema = new Schema({
   },
   agentDisplay: {type: String},
   agentName: {type: String},
+  agentEmail: {type: String},
+  agentPhone: {type: String},
+  agentWebsite: {type: String},
   customAgentDetails: {},
   feturedPropertyFlag: {
     type: Boolean,
-    default: true
+    default: false
   },
   Created_date: {
     type: Date,

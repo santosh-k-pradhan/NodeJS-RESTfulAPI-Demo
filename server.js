@@ -6,6 +6,7 @@ var express = require('express'),
   Task1 = require('./api/models/propertiesModel'), //created model loading here
   Task2 = require('./api/models/userModel'), //created model loading here
   bodyParser = require('body-parser');
+var cors = require('cors');
   
 // mongoose instance connection url connection
 mongoose.Promise = global.Promise;
@@ -14,6 +15,7 @@ mongoose.connect('mongodb://localhost/PropertyDB');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(cors());
 
 /*app.use(function(req, res) {
   res.status(404).send({url: req.originalUrl + ' not found'})
