@@ -2,6 +2,7 @@
 
 var mongoose = require('mongoose'),
     User = mongoose.model('UserCollection');
+var paginate = require('mongoose-pagination');
 
 exports.createUser = function(req, res) {
   var jsEncode = {
@@ -77,4 +78,20 @@ exports.updateAdminAccess = function(req, res) {
       });
     }
   });
+};
+
+exports.getPaginatedUsers = function(req, res) {
+    if(req.body.pageNumber > 1){
+        User
+          .find()
+          .paginate(req.body.pageNumber, req.body.pageSize, function(err, docs, total) {
+            res.json({'docs' : docs, 'count' : total});
+          });
+    } else{
+        User
+          .find()
+          .paginate(req.body.pageNumber, req.body.pageSize, function(err, docs, total) {
+            res.json({'docs' : docs, 'count' : total});
+          });     
+    }
 };

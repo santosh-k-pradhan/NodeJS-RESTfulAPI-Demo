@@ -63,3 +63,61 @@ exports.removeAllProperties = function(req, res) {
     );
   });
 };
+
+exports.updateToFeaturedProperty = function(req, res) {
+  Property.findOneAndUpdate( {_id: req.params.propertyId}, {$set:{feturedPropertyFlag:"true"}}, {new: true}, function(err, response) {
+    if (err)
+      res.send(err);
+    if(response){
+      res.json({ 
+        status: true,
+        desc: 'Set as featured property.'
+      });
+    }
+  });
+};
+
+exports.updateAsSoldProperty = function(req, res) {
+  Property.findOneAndUpdate( {_id: req.params.propertyId}, {$set:{propertyFor:"Sold"}}, {new: true}, function(err, response) {
+    if (err)
+      res.send(err);
+    if(response){
+      res.json({ 
+        status: true,
+        desc: 'Property Sold'
+      });
+    }
+  });
+};
+
+exports.getSoldProperties = function(req, res) {
+  Property.find({'propertyFor':'Sold'}, function(err, resSoldProperty) {
+    if (err)
+      res.send(err);
+    res.json(resSoldProperty);
+  });
+};
+
+exports.getPropertiesById = function(req, res) {
+  Property.find({_id: req.params.propertyId}, function(err, resProperty) {
+    if (err)
+      res.send(err);
+    res.json(resProperty);
+  });
+};
+
+exports.getPaginatedSoldProperties = function(req, res) {
+    if(req.body.pageNumber > 1){
+        Property
+          .find({'propertyFor':'Sold'})
+          .paginate(req.body.pageNumber, req.body.pageSize, function(err, docs, total) {
+            res.json({'docs' : docs, 'count' : total});
+          });
+    } else{
+        Property
+          .find({'propertyFor':'Sold'})
+          .paginate(req.body.pageNumber, req.body.pageSize, function(err, docs, total) {
+            res.json({'docs' : docs, 'count' : total});
+          });     
+    }
+};

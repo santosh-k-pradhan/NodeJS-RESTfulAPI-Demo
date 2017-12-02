@@ -5,6 +5,7 @@ var express = require('express'),
   Task = require('./api/models/featurePropertiesModel'), //created model loading here
   Task1 = require('./api/models/propertiesModel'), //created model loading here
   Task2 = require('./api/models/userModel'), //created model loading here
+  Task3 = require('./api/models/userEnquiryModel'), //created model loading here
   bodyParser = require('body-parser');
 var cors = require('cors');
   
