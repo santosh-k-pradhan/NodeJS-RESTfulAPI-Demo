@@ -68,7 +68,8 @@ exports.getAllUsers = function(req, res) {
 };
 
 exports.updateAdminAccess = function(req, res) {
-  User.findOneAndUpdate( {email: req.params.email}, {$set:{isAdmin:"Y"}}, {new: true}, function(err, response) {
+  User.findOneAndUpdate( {email: req.params.email}, 
+    {$set:{isAdmin: req.params.adminFlag}}, {new: true}, function(err, response) {
     if (err)
       res.send(err);
     if(response){

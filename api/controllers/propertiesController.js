@@ -65,7 +65,8 @@ exports.removeAllProperties = function(req, res) {
 };
 
 exports.updateToFeaturedProperty = function(req, res) {
-  Property.findOneAndUpdate( {_id: req.params.propertyId}, {$set:{feturedPropertyFlag:"true"}}, {new: true}, function(err, response) {
+  Property.findOneAndUpdate( {_id: req.params.propertyId}, 
+    {$set:{feturedPropertyFlag:req.params.propertyFlag}}, {new: true}, function(err, response) {
     if (err)
       res.send(err);
     if(response){
@@ -78,14 +79,23 @@ exports.updateToFeaturedProperty = function(req, res) {
 };
 
 exports.updateAsSoldProperty = function(req, res) {
-  Property.findOneAndUpdate( {_id: req.params.propertyId}, {$set:{propertyFor:"Sold"}}, {new: true}, function(err, response) {
+  Property.findOneAndUpdate( {_id: req.params.propertyId}, 
+    {$set:{propertyFor:req.params.propertyFlag}}, {new: true}, function(err, response) {
     if (err)
       res.send(err);
     if(response){
-      res.json({ 
-        status: true,
-        desc: 'Property Sold'
-      });
+      if (req.params.propertyFlag === 'Sale'){
+        res.json({ 
+          status: true,
+          desc: 'Property For Sale'
+        });
+      }
+      if (req.params.propertyFlag === 'Sold'){
+        res.json({ 
+          status: true,
+          desc: 'Property Sold'
+        });
+      } 
     }
   });
 };

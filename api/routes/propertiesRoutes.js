@@ -18,8 +18,8 @@ module.exports = function(app) {
   app.route('/removeAllProperties').delete(properties.removeAllProperties);
   app.route('/getFeaturedProperties').get(properties.getFeaturedProperties);
   app.route('/getPaginatedProperties').put(properties.getPaginatedProperties);
-  app.route('/updateToFeaturedProperty/:propertyId').put(properties.updateToFeaturedProperty);
-  app.route('/updateAsSoldProperty/:propertyId').put(properties.updateAsSoldProperty);
+  app.route('/updateToFeaturedProperty/:propertyId/:propertyFlag').put(properties.updateToFeaturedProperty);
+  app.route('/updateAsSoldProperty/:propertyId/:propertyFlag').put(properties.updateAsSoldProperty);
   app.route('/getSoldProperties').get(properties.getSoldProperties);
   app.route('/getPropertiesById/:propertyId').get(properties.getPropertiesById);
   app.route('/getPaginatedSoldProperties').put(properties.getPaginatedSoldProperties);
@@ -28,7 +28,7 @@ module.exports = function(app) {
   app.route('/registerUser').post(user.createUser);
   app.route('/getUserMailValidation/:email').get(user.getUserMailValidation);
   app.route('/getAllUsers').get(user.getAllUsers);
-  app.route('/updateAdminAccess/:email').put(user.updateAdminAccess);
+  app.route('/updateAdminAccess/:email/:adminFlag').put(user.updateAdminAccess);
   app.route('/getPaginatedUsers').put(user.getPaginatedUsers);
 
   //Login User Routes
