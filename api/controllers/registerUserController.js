@@ -73,10 +73,18 @@ exports.updateAdminAccess = function(req, res) {
     if (err)
       res.send(err);
     if(response){
-      res.json({ 
-        status: true,
-        desc: 'Admin Access Provided.'
-      });
+      if (req.params.adminFlag === 'Y'){
+        res.json({ 
+          status: true,
+          desc: 'Admin Access Provided.'
+        });
+      }
+      if (req.params.adminFlag === 'N'){
+        res.json({ 
+          status: true,
+          desc: 'Admin Access Reverted.'
+        });
+      }      
     }
   });
 };

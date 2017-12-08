@@ -72,7 +72,7 @@ exports.updateToFeaturedProperty = function(req, res) {
     if(response){
       res.json({ 
         status: true,
-        desc: 'Set as featured property.'
+        desc: 'Property successfully updated.'
       });
     }
   });
@@ -84,18 +84,10 @@ exports.updateAsSoldProperty = function(req, res) {
     if (err)
       res.send(err);
     if(response){
-      if (req.params.propertyFlag === 'Sale'){
-        res.json({ 
-          status: true,
-          desc: 'Property For Sale'
-        });
-      }
-      if (req.params.propertyFlag === 'Sold'){
-        res.json({ 
-          status: true,
-          desc: 'Property Sold'
-        });
-      } 
+      res.json({ 
+        status: true,
+        desc: 'Property successfully updated.'
+      });
     }
   });
 };
