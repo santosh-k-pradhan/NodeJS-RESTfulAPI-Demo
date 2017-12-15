@@ -5,6 +5,7 @@ module.exports = function(app) {
   var user = require('../controllers/registerUserController');
   var authUser = require('../controllers/authenticateUserController');
   var userEnquiry = require('../controllers/userEnquiryController');
+  var mail = require('../controllers/mailController');
 
   app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -38,6 +39,9 @@ module.exports = function(app) {
   app.route('/createUserEnquiry').post(userEnquiry.createUserEnquiry);
   app.route('/getAllEnquiries').get(userEnquiry.getAllEnquiries);
   app.route('/getPaginatedEnquiries').put(userEnquiry.getPaginatedEnquiries);
+
+  //Email Routes
+  app.route('/sendEmail').post(mail.sendEmail);
 
   // Featured Properties Routes
   app.route('/createFeaturedProperties').post(featuredProperties.createFeaturedProperties);
