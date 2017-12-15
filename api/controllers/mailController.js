@@ -11,7 +11,7 @@ exports.sendEmail = function(req, res) {
       "</b>," +
       "<br><br>" +
       reqBody.textBody + 
-      "<br><br><b style='color:green'>Do not reply to this mail. In case of any query please raise a query.</b><br><br>Best Regards,<br>Bhoomibazaar Team";
+      "<br><br><b style='color:green'>Note: Do not reply to this mail. In case of any query please raise a ticket.</b><br><br>Best Regards,<br>Bhoomibazaar Team";
     var data = {
       from: 'DoNotReply - Bhoomibazaar<postmaster@sandbox667fa1ee76544bbf97b083b1af52ccff.mailgun.org>',
       to: reqBody.toEmailId,
@@ -24,7 +24,7 @@ exports.sendEmail = function(req, res) {
       if (error){
         res.json({ 
           status: false,
-          desc: 'Email not sent'
+          desc: 'Email not sent. Please check the mailid is verified or not.'
         });
       }
       else{
