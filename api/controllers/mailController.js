@@ -2,8 +2,8 @@
 
 exports.sendEmail = function(req, res) {
   var reqBody = req.body;
-  var api_key = 'key-dce67a85062261f62a6e47c848dc8b4a';
-    var domain = 'sandbox667fa1ee76544bbf97b083b1af52ccff.mailgun.org';
+  var api_key = 'key-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX';
+    var domain = 'XXXXXX@XXXXXX.XXX';
     var mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
     
     var mailTemplate = "Dear <b>" + 
